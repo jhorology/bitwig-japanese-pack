@@ -10,6 +10,7 @@ Modify pom.xml to suit your environment.
 ```
     mvn integration-test
 ```
+Or you can also download recently build from [here](https://www.dropbox.com/sh/6stkj1n9670qvx8/AAAnXeUKrLX4nreH8sQhvuCqa).
 
 * Mac OSX
 ```
