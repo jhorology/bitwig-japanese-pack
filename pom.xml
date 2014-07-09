@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.2ch.dtm.bitwig</groupId>
   <artifactId>bitwig-japanese-pack</artifactId>
@@ -10,207 +10,207 @@
   <name>bitwig-japanese-pack</name>
 
   <pluginRepositories>
-	<pluginRepository>
-	  <id>sonatype-public-repository</id>
-	  <url>https://oss.sonatype.org/content/groups/public</url>
-	  <snapshots>
-		<enabled>true</enabled>
-	  </snapshots>
-	  <releases>
-		<enabled>true</enabled>
-	  </releases>
-	</pluginRepository>
+    <pluginRepository>
+      <id>sonatype-public-repository</id>
+      <url>https://oss.sonatype.org/content/groups/public</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </pluginRepository>
   </pluginRepositories>
 
   <properties>
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<koruri.version>20140524</koruri.version>
-	<koruri.file.id>61231</koruri.file.id>
-	<koruri.md5>7912249d6aa68268b9315748e94746a9</koruri.md5>
-	<bitwig.version>1.0.10</bitwig.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <koruri.version>20140524</koruri.version>
+    <koruri.file.id>61231</koruri.file.id>
+    <koruri.md5>7912249d6aa68268b9315748e94746a9</koruri.md5>
+    <bitwig.version>1.0.10</bitwig.version>
   </properties>
 
   <profiles>
-	<profile>
-	  <id>mac-profile</id>
-	  <activation>
-		<os>
-		  <family>mac</family>
-		</os>
-	  </activation>
-	  <properties>
-		<bitwig.lib.ext.directory>/Applications/Bitwig Studio.app/Contents/PlugIns/JavaVM.plugin/Contents/Home/lib/ext</bitwig.lib.ext.directory>
-		<bitwig.localization.directory>/Applications/Bitwig Studio.app/Contents/Resources/localization</bitwig.localization.directory>
-	  </properties>
-	</profile>
+    <profile>
+      <id>mac-profile</id>
+      <activation>
+        <os>
+          <family>mac</family>
+        </os>
+      </activation>
+      <properties>
+        <bitwig.lib.ext.directory>/Applications/Bitwig Studio.app/Contents/PlugIns/JavaVM.plugin/Contents/Home/lib/ext</bitwig.lib.ext.directory>
+        <bitwig.localization.directory>/Applications/Bitwig Studio.app/Contents/Resources/localization</bitwig.localization.directory>
+      </properties>
+    </profile>
 
-	<profile>
-	  <id>windows-profile</id>
-	  <activation>
-		<os>
-		  <family>windows</family>
-		</os>
-	  </activation>
-	  <properties>
-		<bitwig.lib.ext.directory>C:/Program Files/Bitwig Studio ${bitwig.version}/jre/lib/ext</bitwig.lib.ext.directory>
-		<bitwig.localization.directory>C:/Program Files/Bitwig Studio ${bitwig.version}/resources/localization</bitwig.localization.directory>
-	  </properties>
-	</profile>
+    <profile>
+      <id>windows-profile</id>
+      <activation>
+        <os>
+          <family>windows</family>
+        </os>
+      </activation>
+      <properties>
+        <bitwig.lib.ext.directory>C:/Program Files/Bitwig Studio ${bitwig.version}/jre/lib/ext</bitwig.lib.ext.directory>
+        <bitwig.localization.directory>C:/Program Files/Bitwig Studio ${bitwig.version}/resources/localization</bitwig.localization.directory>
+      </properties>
+    </profile>
 
-	<profile>
-	  <id>linux-profile</id>
-	  <activation>
-		<os>
-		  <family>unix</family>
-		  <name>linux</name>
-		</os>
-	  </activation>
-	  <properties>
-		<!-- 知るかよ -->
-		<bitwig.lib.ext.directory></bitwig.lib.ext.directory>
-		<bitwig.localization.directory></bitwig.localization.directory>
-	  </properties>
-	</profile>
+    <profile>
+      <id>linux-profile</id>
+      <activation>
+        <os>
+          <family>unix</family>
+          <name>linux</name>
+        </os>
+      </activation>
+      <properties>
+        <!-- 知るかよ -->
+        <bitwig.lib.ext.directory></bitwig.lib.ext.directory>
+        <bitwig.localization.directory></bitwig.localization.directory>
+      </properties>
+    </profile>
   </profiles>
 
   <build>
 
-	<plugins>
+    <plugins>
 
-	  <plugin>
-		<groupId>com.googlecode.maven-download-plugin</groupId>
-		<artifactId>maven-download-plugin</artifactId>
-		<version>1.1.0</version>
-		<executions>
-		  <!-- 小瑠璃フォントのダウンロード -->
-		  <execution>
-			<id>download-koruri</id>
-			<phase>generate-resources</phase>
-			<goals>
-			  <goal>wget</goal>
-			</goals>
-			<configuration>
-			  <url>http://sourceforge.jp/frs/redir.php?m=iij&amp;f=/koruri/${koruri.file.id}/Koruri-${koruri.version}.tar.xz</url>
-			  <outputDirectory>${project.build.directory}</outputDirectory>
-			  <md5>${koruri.md5}</md5>
-			</configuration>
-		  </execution>
-		</executions>
-	  </plugin>
+      <plugin>
+        <groupId>com.googlecode.maven-download-plugin</groupId>
+        <artifactId>maven-download-plugin</artifactId>
+        <version>1.1.0</version>
+        <executions>
+          <!-- 小瑠璃フォントのダウンロード -->
+          <execution>
+            <id>download-koruri</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>wget</goal>
+            </goals>
+            <configuration>
+              <url>http://sourceforge.jp/frs/redir.php?m=iij&amp;f=/koruri/${koruri.file.id}/Koruri-${koruri.version}.tar.xz</url>
+              <outputDirectory>${project.build.directory}</outputDirectory>
+              <md5>${koruri.md5}</md5>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 
-	  <plugin>
-		<artifactId>maven-antrun-plugin</artifactId>
-		<version>1.7</version>
-		<executions>
-		  <!-- 小瑠璃フォントの解凍 -->
-		  <execution>
-			<id>unpack-koruri</id>
-			<phase>generate-resources</phase>
-			<configuration>
-			  <tasks>
-				<taskdef uri="antlib:org.apache.ant.compress"
-						 resource="org/apache/ant/compress/antlib.xml"
-						 classpathref="maven.plugin.classpath"></taskdef>
-				<cmp:unxz src="${project.build.directory}/Koruri-${koruri.version}.tar.xz"
-						  xmlns:cmp="antlib:org.apache.ant.compress"/>
-				<cmp:untar src="${project.build.directory}/Koruri-${koruri.version}.tar"
-						   dest="${project.build.directory}"
-						   xmlns:cmp="antlib:org.apache.ant.compress"/>
-			  </tasks>
-			</configuration>
-			<goals>
-			  <goal>run</goal>
-			</goals>
-		  </execution>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <!-- 小瑠璃フォントの解凍 -->
+          <execution>
+            <id>unpack-koruri</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <tasks>
+                <taskdef uri="antlib:org.apache.ant.compress"
+                         resource="org/apache/ant/compress/antlib.xml"
+                         classpathref="maven.plugin.classpath"></taskdef>
+                <cmp:unxz src="${project.build.directory}/Koruri-${koruri.version}.tar.xz"
+                          xmlns:cmp="antlib:org.apache.ant.compress"/>
+                <cmp:untar src="${project.build.directory}/Koruri-${koruri.version}.tar"
+                           dest="${project.build.directory}"
+                           xmlns:cmp="antlib:org.apache.ant.compress"/>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
 
 
-		  <!-- 小瑠璃フォントをOpenSansにrenameし出力ディレクトリにコピー -->
-		  <execution>
-			<id>copy-rename-koruri</id>
-			<phase>process-resources</phase>
-			<configuration>
-			  <tasks>
-				<copy todir="${project.build.outputDirectory}/fonts">
-				  <fileset dir="${project.build.directory}/Koruri-${koruri.version}"/>
-				  <mapper type="glob" from="Koruri-*.ttf" to="OpenSans-*.ttf"/>
-				</copy>
-				<copy todir="${project.build.outputDirectory}/fonts">
-				  <fileset dir="${project.build.directory}/Koruri-${koruri.version}"
+          <!-- 小瑠璃フォントをOpenSansにrenameし出力ディレクトリにコピー -->
+          <execution>
+            <id>copy-rename-koruri</id>
+            <phase>process-resources</phase>
+            <configuration>
+              <tasks>
+                <copy todir="${project.build.outputDirectory}/fonts">
+                  <fileset dir="${project.build.directory}/Koruri-${koruri.version}"/>
+                  <mapper type="glob" from="Koruri-*.ttf" to="OpenSans-*.ttf"/>
+                </copy>
+                <copy todir="${project.build.outputDirectory}/fonts">
+                  <fileset dir="${project.build.directory}/Koruri-${koruri.version}"
                            includes="*.txt *.md"/>
-				</copy>
-			  </tasks>
-			</configuration>
-			<goals>
-			  <goal>run</goal>
-			</goals>
-		  </execution>
-
-		  <execution>
-			<id>copy-font-to-bitwig</id>
-			<phase>integration-test</phase>
-			<configuration>
-			  <tasks>
-				<!-- bitwigのlib/extにファイルをコピー -->
-				<copy file="${project.build.directory}/${project.build.finalName}.${project.packaging}"
-					  todir="${bitwig.lib.ext.directory}"/>
-				<!-- bitwigのlocalizationにファイルをコピー -->
-				<copy file="${project.build.outputDirectory}/localization/Bitwig Studio-resources_ja.properties"
-					  todir="${bitwig.localization.directory}"/>
-				<copy file="${project.build.outputDirectory}/localization/GUIApplication-resources_ja.properties"
-					  todir="${bitwig.localization.directory}"/>
-			  </tasks>
-			</configuration>
-			<goals>
-			  <goal>run</goal>
-			</goals>
-		  </execution>
+                </copy>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
 
           <execution>
-		    <id>copy-resources-for-test</id>
-		    <phase>process-test-resources</phase>
-		    <configuration>
-			  <tasks>
-                <!-- translated resources -->
-			    <copy todir="${project.build.directory}/test/resources">
-				  <fileset dir="src/main/resources/localization" includes="*.properties"/>
-			    </copy>
-                <!-- bitwig default english resources -->
-			    <copy file="${bitwig.localization.directory}/Bitwig Studio-resources.properties"
-                      toDir="${project.build.directory}/test/resources"/>
-			    <copy file="${bitwig.localization.directory}/GUIApplication-resources.properties"
-                      toDir="${project.build.directory}/test/resources"/>
-			  </tasks>
-		    </configuration>
-		    <goals>
-			  <goal>run</goal>
-		    </goals>
-		  </execution>
-		</executions>
+            <id>copy-font-to-bitwig</id>
+            <phase>integration-test</phase>
+            <configuration>
+              <tasks>
+                <!-- bitwigのlib/extにファイルをコピー -->
+                <copy file="${project.build.directory}/${project.build.finalName}.${project.packaging}"
+                      todir="${bitwig.lib.ext.directory}"/>
+                <!-- bitwigのlocalizationにファイルをコピー -->
+                <copy file="${project.build.outputDirectory}/localization/Bitwig Studio-resources_ja.properties"
+                      todir="${bitwig.localization.directory}"/>
+                <copy file="${project.build.outputDirectory}/localization/GUIApplication-resources_ja.properties"
+                      todir="${bitwig.localization.directory}"/>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
 
-		<dependencies>
-		  <dependency>
-			<groupId>org.apache.ant</groupId>
-			<artifactId>ant-compress</artifactId>
-			<version>1.4</version>
-			<exclusions>
-			  <exclusion>
-				<groupId>ant</groupId>
-				<artifactId>ant</artifactId>
-			  </exclusion>
-			</exclusions>
-		  </dependency>
-		  <dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-compress</artifactId>
-			<version>1.8</version>
-		  </dependency>
-		  <dependency>
-			<groupId>org.apache.ant</groupId>
-			<artifactId>ant-nodeps</artifactId>
-			<version>1.8.1</version>
-		  </dependency>
-		</dependencies>
-	  </plugin>
+          <execution>
+            <id>copy-resources-for-test</id>
+            <phase>process-test-resources</phase>
+            <configuration>
+              <tasks>
+                <!-- translated resources -->
+                <copy todir="${project.build.directory}/test/resources">
+                  <fileset dir="src/main/resources/localization" includes="*.properties"/>
+                </copy>
+                <!-- bitwig default english resources -->
+                <copy file="${bitwig.localization.directory}/Bitwig Studio-resources.properties"
+                      toDir="${project.build.directory}/test/resources"/>
+                <copy file="${bitwig.localization.directory}/GUIApplication-resources.properties"
+                      toDir="${project.build.directory}/test/resources"/>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant-compress</artifactId>
+            <version>1.4</version>
+            <exclusions>
+              <exclusion>
+                <groupId>ant</groupId>
+                <artifactId>ant</artifactId>
+              </exclusion>
+            </exclusions>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.8</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant-nodeps</artifactId>
+            <version>1.8.1</version>
+          </dependency>
+        </dependencies>
+      </plugin>
 
       <plugin>
         <groupId>com.googlecode.l10n-maven-plugin</groupId>
@@ -233,6 +233,6 @@
           <formatter>messageFormat</formatter>
         </configuration>
       </plugin>
-	</plugins>
+    </plugins>
   </build>
 </project>
