@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.2ch.dtm.bitwig</groupId>
   <artifactId>bitwig-japanese-pack</artifactId>
-  <version>0.2-SNAPSHOT</version>
+  <version>0.3-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>bitwig-japanese-pack</name>
 
@@ -24,10 +24,10 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <koruri.version>20140524</koruri.version>
-    <koruri.file.id>61231</koruri.file.id>
-    <koruri.md5>7912249d6aa68268b9315748e94746a9</koruri.md5>
-    <bitwig.version>1.0.14RC1</bitwig.version>
+    <koruri.version>20140904</koruri.version>
+    <koruri.file.id>61919</koruri.file.id>
+    <koruri.md5>5c35bf856ebaccb59ba8333350b83eb4</koruri.md5>
+    <bitwig.version>1.0.14</bitwig.version>
   </properties>
 
   <profiles>
