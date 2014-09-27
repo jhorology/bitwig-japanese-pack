@@ -31,7 +31,7 @@ Or you can also download recently build from [here](https://www.dropbox.com/sh/6
 
  ![jdk7](image/jdk7.png "Bitwig Studio with JDK7(default)")
 
-- Bitwig Studio running with jre8
+- Bitwig Studio running with jre1.8
 
  ![jdk8](image/jdk8.png "Bitwig Studio with JDK8")
 
