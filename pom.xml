@@ -27,7 +27,7 @@
     <koruri.version>20141224</koruri.version>
     <koruri.file.id>62469</koruri.file.id>
     <koruri.md5>21b1e8b0a011649e37fddf0e2bf61305</koruri.md5>
-    <bitwig.version>1.1.5RC2</bitwig.version>
+    <bitwig.version>1.1.7</bitwig.version>
   </properties>
 
   <profiles>
@@ -66,9 +66,8 @@
         </os>
       </activation>
       <properties>
-        <!-- 知るかよ -->
-        <bitwig.lib.ext.directory></bitwig.lib.ext.directory>
-        <bitwig.localization.directory></bitwig.localization.directory>
+        <bitwig.lib.ext.directory>/opt/bitwig-studio/bin/jre/lib/ext</bitwig.lib.ext.directory>
+        <bitwig.localization.directory>/opt/bitwig-studio/resources/localization</bitwig.localization.directory>
       </properties>
     </profile>
   </profiles>
