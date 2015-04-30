@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.2ch.dtm.bitwig</groupId>
   <artifactId>bitwig-japanese-pack</artifactId>
-  <version>0.5-SNAPSHOT</version>
+  <version>0.6-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>bitwig-japanese-pack</name>
 
@@ -24,9 +24,9 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <koruri.version>20141224</koruri.version>
-    <koruri.file.id>62469</koruri.file.id>
-    <koruri.md5>21b1e8b0a011649e37fddf0e2bf61305</koruri.md5>
+    <ohruri.version>20150226</ohruri.version>
+    <ohruri.file.id>62879</ohruri.file.id>
+    <ohruri.md5>5ae28b3f092a4830786764c00ef441d4</ohruri.md5>
     <bitwig.version>1.1.7</bitwig.version>
   </properties>
 
@@ -81,17 +81,17 @@
         <artifactId>maven-download-plugin</artifactId>
         <version>1.1.0</version>
         <executions>
-          <!-- 小瑠璃フォントのダウンロード -->
+          <!-- 大瑠璃フォントのダウンロード -->
           <execution>
-            <id>download-koruri</id>
+            <id>download-ohruri</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>wget</goal>
             </goals>
             <configuration>
-              <url>http://sourceforge.jp/frs/redir.php?m=iij&amp;f=/koruri/${koruri.file.id}/Koruri-${koruri.version}.tar.xz</url>
+              <url>http://sourceforge.jp/frs/redir.php?m=iij&amp;f=/koruri/${ohruri.file.id}/Ohruri-${ohruri.version}.7z</url>
               <outputDirectory>${project.build.directory}</outputDirectory>
-              <md5>${koruri.md5}</md5>
+              <md5>${ohruri.md5}</md5>
             </configuration>
           </execution>
         </executions>
@@ -101,20 +101,23 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.7</version>
         <executions>
-          <!-- 小瑠璃フォントの解凍 -->
+          <!-- 大瑠璃フォントの解凍 -->
           <execution>
-            <id>unpack-koruri</id>
+            <id>unpack-ohruri</id>
             <phase>generate-resources</phase>
             <configuration>
               <tasks>
                 <taskdef uri="antlib:org.apache.ant.compress"
                          resource="org/apache/ant/compress/antlib.xml"
                          classpathref="maven.plugin.classpath"></taskdef>
-                <cmp:unxz src="${project.build.directory}/Koruri-${koruri.version}.tar.xz"
+                <cmp:un7z src="${project.build.directory}/Ohruri-${ohruri.version}.7z"
+                          dest="${project.build.directory}"
                           xmlns:cmp="antlib:org.apache.ant.compress"/>
-                <cmp:untar src="${project.build.directory}/Koruri-${koruri.version}.tar"
+                <!--
+                <cmp:untar src="${project.build.directory}/Ohruri-${ohruri.version}.tar"
                            dest="${project.build.directory}"
                            xmlns:cmp="antlib:org.apache.ant.compress"/>
+                -->
               </tasks>
             </configuration>
             <goals>
@@ -125,16 +128,16 @@
 
           <!-- 小瑠璃フォントをOpenSansにrenameし出力ディレクトリにコピー -->
           <execution>
-            <id>copy-rename-koruri</id>
+            <id>copy-rename-ohruri</id>
             <phase>process-resources</phase>
             <configuration>
               <tasks>
                 <copy todir="${project.build.outputDirectory}/fonts">
-                  <fileset dir="${project.build.directory}/Koruri-${koruri.version}"/>
-                  <mapper type="glob" from="Koruri-*.ttf" to="OpenSans-*.ttf"/>
+                  <fileset dir="${project.build.directory}/Ohruri-${ohruri.version}"/>
+                  <mapper type="glob" from="Ohruri-*.ttf" to="OpenSans-*.ttf"/>
                 </copy>
                 <copy todir="${project.build.outputDirectory}/fonts">
-                  <fileset dir="${project.build.directory}/Koruri-${koruri.version}"
+                  <fileset dir="${project.build.directory}/Ohruri-${ohruri.version}"
                            includes="*.txt *.md"/>
                 </copy>
               </tasks>
@@ -201,7 +204,7 @@
           <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-compress</artifactId>
-            <version>1.8</version>
+            <version>1.9</version>
           </dependency>
           <dependency>
             <groupId>org.apache.ant</groupId>
