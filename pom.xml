@@ -229,7 +229,7 @@
         </executions>
         <configuration>
           <propertyDir>${project.build.directory}/test/resources</propertyDir>
-          <ignoreFailure>false</ignoreFailure>
+          <ignoreFailure>true</ignoreFailure>
           <dictionaryDir/>
           <reportsDir>${project.build.directory}/l10n-reports</reportsDir>
           <formatter>messageFormat</formatter>
