@@ -29,3 +29,6 @@ Or you can also download recently build from [here](https://www.dropbox.com/sh/6
 /opt/bitwig-studio/resources/localization/Bitwig Studio-resources_ja.properties
 /opt/bitwig-studio/resources/localization/GUIApplication-resources_ja.properties
 ```
+
+### Credit
+This pack include [Ohrui font](https://github.com/Koruri/Ohruri).
