@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.2ch.dtm.bitwig</groupId>
   <artifactId>bitwig-japanese-pack</artifactId>
-  <version>0.7-SNAPSHOT</version>
+  <version>0.8-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>bitwig-japanese-pack</name>
 
@@ -24,10 +24,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <ohruri.version>20150606</ohruri.version>
-    <ohruri.file.id>63358</ohruri.file.id>
-    <ohruri.md5>18edece40298e08f90e4b1a27b2ba645</ohruri.md5>
-    <bitwig.version>1.1.9RC1</bitwig.version>
+    <bitwig.version>1.2 BETA 5</bitwig.version>
   </properties>
 
   <profiles>
@@ -81,20 +78,19 @@
         <artifactId>maven-download-plugin</artifactId>
         <version>1.1.0</version>
         <executions>
-          <!-- 大瑠璃フォントのダウンロード -->
+          <!-- NotoSansCJK JPフォントのダウンロード -->
           <execution>
-            <id>download-ohruri</id>
+            <id>download-notosans</id>
             <phase>generate-resources</phase>
             <goals>
               <goal>wget</goal>
             </goals>
             <configuration>
               <!--
-                  http://osdn.jp/frs/redir.php?m=jaist&f=%2Fkoruri%2F63358%2FOhruri-20150606.tar.xz
-                  -->
-              <url>http://osdn.jp/frs/redir.php?m=jaist&amp;f=/koruri/${ohruri.file.id}/Ohruri-${ohruri.version}.tar.xz</url>
+                  1.2よりフォントがOpenSansからSourceSansProに変更されたため日本語フォントをNotoSansに変更
+              -->
+              <url>https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKJP-hinted.zip</url>
               <outputDirectory>${project.build.directory}</outputDirectory>
-              <md5>${ohruri.md5}</md5>
             </configuration>
           </execution>
         </executions>
@@ -104,21 +100,14 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.7</version>
         <executions>
-          <!-- 大瑠璃フォントの解凍 -->
+          <!-- NotoSansフォントの解凍 -->
           <execution>
-            <id>unpack-ohruri</id>
+            <id>unpack-notosans</id>
             <phase>generate-resources</phase>
             <configuration>
               <tasks>
-                <taskdef uri="antlib:org.apache.ant.compress"
-                         resource="org/apache/ant/compress/antlib.xml"
-                         classpathref="maven.plugin.classpath"></taskdef>
-                <cmp:unxz src="${project.build.directory}/Ohruri-${ohruri.version}.tar.xz"
-                          dest="${project.build.directory}"
-                          xmlns:cmp="antlib:org.apache.ant.compress"/>
-                <cmp:untar src="${project.build.directory}/Ohruri-${ohruri.version}.tar"
-                           dest="${project.build.directory}"
-                           xmlns:cmp="antlib:org.apache.ant.compress"/>
+                <unzip src="${project.build.directory}/NotoSansCJKJP-hinted.zip"
+                       dest="${project.build.directory}"/>
               </tasks>
             </configuration>
             <goals>
@@ -127,20 +116,32 @@
           </execution>
 
 
-          <!-- 小瑠璃フォントをOpenSansにrenameし出力ディレクトリにコピー -->
+          <!--
+              NotoSansフォントをSourceSansProにrenameし出力ディレクトリにコピー
+              使用されてるフォントのみ近いウェイトのNotoSansに置き換える
+              NotoSansはotfフォントだがbitwigがファイル名指定でフォントを読み込んでるため
+              乱暴だがttfにリネーム(実態はotfフォントのまま)libfreetypeを使用していると
+              思われるため、表示は出来るようだ。
+          -->
           <execution>
             <id>copy-rename-ohruri</id>
             <phase>process-resources</phase>
             <configuration>
               <tasks>
-                <copy todir="${project.build.outputDirectory}/fonts">
-                  <fileset dir="${project.build.directory}/Ohruri-${ohruri.version}"/>
-                  <mapper type="glob" from="Ohruri-*.ttf" to="OpenSans-*.ttf"/>
-                </copy>
-                <copy todir="${project.build.outputDirectory}/fonts">
-                  <fileset dir="${project.build.directory}/Ohruri-${ohruri.version}"
-                           includes="*.txt *.md"/>
-                </copy>
+                <copy file="${project.build.directory}/NotoSansCJKjp-Thin.otf"
+                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-ExtraLight.ttf"/>
+                <copy file="${project.build.directory}/NotoSansCJKjp-Light.otf"
+                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Light.ttf"/>
+                <copy file="${project.build.directory}/NotoSansCJKjp-Regular.otf"
+                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Regular.ttf"/>
+                <copy file="${project.build.directory}/NotoSansCJKjp-Medium.otf"
+                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Semibold.ttf"/>
+                <copy file="${project.build.directory}/NotoSansCJKjp-Bold.otf"
+                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Bold.ttf"/>
+                <copy file="${project.build.directory}/NotoSansCJKjp-Black.otf"
+                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Black.ttf"/>
+                <copy file="${project.build.directory}/LICENSE_CJK.txt"
+                      toDir="${project.build.outputDirectory}/fonts"/>
               </tasks>
             </configuration>
             <goals>

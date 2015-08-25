@@ -31,4 +31,4 @@ Or you can also download recently build from [here](https://www.dropbox.com/sh/6
 ```
 
 ### Credit
-This pack include [Ohrui font](https://github.com/Koruri/Ohruri).
+This pack include [NotoSansCJK JP font](https://www.google.com/get/noto).
