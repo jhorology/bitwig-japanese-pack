@@ -63,7 +63,7 @@
         </os>
       </activation>
       <properties>
-        <bitwig.lib.ext.directory>/opt/bitwig-studio/bin/jre/lib/ext</bitwig.lib.ext.directory>
+        <bitwig.lib.ext.directory>/opt/bitwig-studio/lib/jre/lib/ext</bitwig.lib.ext.directory>
         <bitwig.localization.directory>/opt/bitwig-studio/resources/localization</bitwig.localization.directory>
       </properties>
     </profile>
