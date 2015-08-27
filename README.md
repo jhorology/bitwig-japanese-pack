@@ -49,4 +49,4 @@ OSX, Windowsでは現在のところ切替方法は解りません。
 また1.2よりフォントがOpenSansからSourceSansProに変更されたため日本語フォントをOhruriからNotoSansに変更しました。
 
 ### Credit
-This pack include [Ohrui font](https://github.com/Koruri/Ohruri).
+This pack include [NotoSansCJK JP font](https://www.google.com/get/noto).
