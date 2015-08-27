@@ -25,7 +25,7 @@ Or you can also download recently build from [here](https://www.dropbox.com/sh/6
 
 * Linux
 ```
-/opt/bitwig-studio/bin/jre/lib/ext/bitwig-japanese-pack-${version}.jar
+/opt/bitwig-studio/lib/jre/lib/ext/bitwig-japanese-pack-${version}.jar
 /opt/bitwig-studio/resources/localization/Bitwig Studio-resources_ja.properties
 /opt/bitwig-studio/resources/localization/GUIApplication-resources_ja.properties
 ```
