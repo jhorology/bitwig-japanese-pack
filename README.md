@@ -44,7 +44,12 @@ Windows  環境持ってないので知りません。
 日本語 LANG=ja_JP.UTF-8 /opt/bitwig-studio/bitwig-studio
 英語   LANG=en_US.UTF-8 /opt/bitwig-studio/bitwig-studio
 ```
-OSX, Windowsでは現在のところ切替方法は解りません。
+OSXではopenコマンドで起動します。
+```
+日本語 open -a Bitwig\ Studio --args -AppleLanguages '("ja-JP")'
+英語   open -a Bitwig\ Studio --args -AppleLanguages '("en-US")'
+```
+
 
 また1.2よりフォントがOpenSansからSourceSansProに変更されたため日本語フォントをOhruriからNotoSansに変更しました。
 
