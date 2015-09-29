@@ -49,9 +49,13 @@ OSXではopenコマンドで起動します。
 日本語 open -a Bitwig\ Studio --args -AppleLanguages '("ja-JP")'
 英語   open -a Bitwig\ Studio --args -AppleLanguages '("en-US")'
 ```
-
-
-また1.2よりフォントがOpenSansからSourceSansProに変更されたため日本語フォントをOhruriからNotoSansに変更しました。
+また1.2よりフォントがOpen SansからSource Sans Proに変更になったため、
+自家合成した[フォント](https://github.com/jhorology/bitwig-japanese-pack/tree/master/fonts)に置き換えました、Source Sans Proをベースにしたメトリックのため
+デバイスパネル等でのGUIのズレが解消しました。(日本語フォントとして一般使用には向かないと思います。)
 
 ### Credit
-This pack include [NotoSansCJK JP font](https://www.google.com/get/noto).
+[Gen Sans Pro Plus fonts](https://github.com/jhorology/bitwig-japanese-pack/tree/master/fonts) are genereated from following fonts.
+  - Source Sans Pro https://github.com/adobe-fonts/source-sans-pro
+  - Mgen+ http://jikasei.me/font/mgenplus
+    - M plus https://mplus-fonts.osdn.jp
+    - Source San Hans  https://github.com/adobe-fonts/source-han-code-jp

@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.2ch.dtm.bitwig</groupId>
   <artifactId>bitwig-japanese-pack</artifactId>
-  <version>0.8-SNAPSHOT</version>
+  <version>0.9-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>bitwig-japanese-pack</name>
 
@@ -24,7 +24,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <bitwig.version>1.2 BETA 9</bitwig.version>
+    <bitwig.version>1.2 BETA 11</bitwig.version>
   </properties>
 
   <profiles>
@@ -72,30 +72,7 @@
   <build>
 
     <plugins>
-
-      <plugin>
-        <groupId>com.googlecode.maven-download-plugin</groupId>
-        <artifactId>maven-download-plugin</artifactId>
-        <version>1.1.0</version>
-        <executions>
-          <!-- NotoSansCJK JPフォントのダウンロード -->
-          <execution>
-            <id>download-notosans</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>wget</goal>
-            </goals>
-            <configuration>
-              <!--
-                  1.2よりフォントがOpenSansからSourceSansProに変更されたため日本語フォントをNotoSansに変更
-              -->
-              <url>https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKJP-hinted.zip</url>
-              <outputDirectory>${project.build.directory}</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
+      
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.7</version>
@@ -117,17 +94,18 @@
 
 
           <!--
-              NotoSansフォントをSourceSansProにrenameし出力ディレクトリにコピー
-              使用されてるフォントのみ近いウェイトのNotoSansに置き換える
-              NotoSansはotfフォントだがbitwigがファイル名指定でフォントを読み込んでるため
-              乱暴だがttfにリネーム(実態はotfフォントのまま)libfreetypeを使用していると
-              思われるため、表示は出来るようだ。
+              Gen Sans Pro PlusフォントをSourceSansProにrenameし出力ディレクトリにコピー
           -->
           <execution>
             <id>copy-rename-ohruri</id>
             <phase>process-resources</phase>
             <configuration>
               <tasks>
+                <copy todir="${project.build.outputDirectory}/fonts">
+                  <fileset dir="${basedir}/fonts"/>
+                  <mapper type="glob" from="GenSansProPlus-*.ttf" to="SourceSansPro-*.ttf"/>
+                </copy>
+                <!--
                 <copy file="${project.build.directory}/NotoSansCJKjp-Thin.otf"
                       tofile="${project.build.outputDirectory}/fonts/SourceSansPro-ExtraLight.ttf"/>
                 <copy file="${project.build.directory}/NotoSansCJKjp-Light.otf"
@@ -141,7 +119,8 @@
                 <copy file="${project.build.directory}/NotoSansCJKjp-Black.otf"
                       tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Black.ttf"/>
                 <copy file="${project.build.directory}/LICENSE_CJK.txt"
-                      toDir="${project.build.outputDirectory}/fonts"/>
+                toDir="${project.build.outputDirectory}/fonts"/>
+                -->
               </tasks>
             </configuration>
             <goals>
