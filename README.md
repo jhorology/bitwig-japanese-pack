@@ -58,4 +58,4 @@ OSXではopenコマンドで起動します。
   - Source Sans Pro https://github.com/adobe-fonts/source-sans-pro
   - Mgen+ http://jikasei.me/font/mgenplus
     - M plus https://mplus-fonts.osdn.jp
-    - Source Han Sans  https://github.com/adobe-fonts/source-han-code-jp
+    - Source Han Sans  https://github.com/adobe-fonts/source-han-sans
