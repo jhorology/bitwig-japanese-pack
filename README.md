@@ -54,7 +54,7 @@ OSXではopenコマンドで起動します。
 デバイスパネル等でのGUIのズレが解消しました。(日本語フォントとして一般使用には向かないと思います。)
 
 ### Credit
-[Gen Sans Pro Plus fonts](https://github.com/jhorology/bitwig-japanese-pack/tree/master/fonts) are genereated from following fonts.
+[Gen Sans Pro Plus fonts](https://github.com/jhorology/bitwig-japanese-pack/tree/master/fonts) are generated from following fonts.
   - Source Sans Pro https://github.com/adobe-fonts/source-sans-pro
   - Mgen+ http://jikasei.me/font/mgenplus
     - M plus https://mplus-fonts.osdn.jp
