@@ -77,22 +77,6 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.7</version>
         <executions>
-          <!-- NotoSansフォントの解凍 -->
-          <execution>
-            <id>unpack-notosans</id>
-            <phase>generate-resources</phase>
-            <configuration>
-              <tasks>
-                <unzip src="${project.build.directory}/NotoSansCJKJP-hinted.zip"
-                       dest="${project.build.directory}"/>
-              </tasks>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-
-
           <!--
               Gen Sans Pro PlusフォントをSourceSansProにrenameし出力ディレクトリにコピー
           -->
@@ -105,22 +89,6 @@
                   <fileset dir="${basedir}/fonts"/>
                   <mapper type="glob" from="GenSansProPlus-*.ttf" to="SourceSansPro-*.ttf"/>
                 </copy>
-                <!--
-                <copy file="${project.build.directory}/NotoSansCJKjp-Thin.otf"
-                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-ExtraLight.ttf"/>
-                <copy file="${project.build.directory}/NotoSansCJKjp-Light.otf"
-                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Light.ttf"/>
-                <copy file="${project.build.directory}/NotoSansCJKjp-Regular.otf"
-                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Regular.ttf"/>
-                <copy file="${project.build.directory}/NotoSansCJKjp-Medium.otf"
-                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Semibold.ttf"/>
-                <copy file="${project.build.directory}/NotoSansCJKjp-Bold.otf"
-                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Bold.ttf"/>
-                <copy file="${project.build.directory}/NotoSansCJKjp-Black.otf"
-                      tofile="${project.build.outputDirectory}/fonts/SourceSansPro-Black.ttf"/>
-                <copy file="${project.build.directory}/LICENSE_CJK.txt"
-                toDir="${project.build.outputDirectory}/fonts"/>
-                -->
               </tasks>
             </configuration>
             <goals>
