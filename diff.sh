@@ -17,7 +17,7 @@ case "`uname`" in
 esac
 
 if $darwin ; then
-    LOCALIZATION_DIR="/Applications/Bitwig\ Studio.app/Contents/Resources/localization"
+    LOCALIZATION_DIR="/Applications/Bitwig Studio.app/Contents/Resources/localization"
 fi
 
 if $linux ; then
