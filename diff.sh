@@ -4,6 +4,27 @@
 
 cd `dirname $0`
 
-diff -c target/test/resources/Bitwig\ Studio-resources.properties /Applications/Bitwig\ Studio.app/Contents/Resources/localization/Bitwig\ Studio-resources.properties
+cygwin=false
+darwin=false
+mingw=false
+linux=false
 
-diff -c target/test/resources/GUIApplication-resources.properties /Applications/Bitwig\ Studio.app/Contents/Resources/localization/GUIApplication-resources.properties
+case "`uname`" in
+    CYGWIN*) cygwin=true ;;
+    MINGW*) mingw=true;;
+    Darwin*) darwin=true;;
+    Linux*) linux=true;;
+esac
+
+if $darwin ; then
+    LOCALIZATION_DIR="/Applications/Bitwig\ Studio.app/Contents/Resources/localization"
+fi
+
+if $linux ; then
+    LOCALIZATION_DIR="/opt/bitwig-studio/resources/localization"
+fi
+
+
+diff -c target/test/resources/Bitwig\ Studio-resources.properties "${LOCALIZATION_DIR}/Bitwig Studio-resources.properties"
+
+diff -c target/test/resources/GUIApplication-resources.properties "${LOCALIZATION_DIR}/GUIApplication-resources.properties"
