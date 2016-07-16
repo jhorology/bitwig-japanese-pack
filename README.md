@@ -30,11 +30,6 @@ Or you can also download recently build from [here](https://www.dropbox.com/sh/6
 /opt/bitwig-studio/resources/localization/GUIApplication-resources_ja.properties
 ```
 
-### Important Notice
-1.3.5よりOSX El Capitan対応したようですが、本パック付属の言語切替え用ラウンチャは使用出来ません。
-El Capitan環境下で言語切替えが必要な場合[bitwig-el-capitan-launcher](https://github.com/jhorology/bitwig-el-capitan-launcher)を
-引き続き使用下さい。
-
 ### Credit
 [Gen Sans Pro Plus fonts](https://github.com/jhorology/bitwig-japanese-pack/tree/master/fonts) are generated from following fonts.
   - Source Sans Pro https://github.com/adobe-fonts/source-sans-pro
